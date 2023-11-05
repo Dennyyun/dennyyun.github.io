@@ -1,3 +1,26 @@
+- [`Hadoop`完全分布式搭建](#hadoop完全分布式搭建)
+  - [1. 安装  `java`/`hadoop`](#1-安装--javahadoop)
+    - [1.1 修改虚拟机网卡](#11-修改虚拟机网卡)
+    - [1.2 修改主机名及映射](#12-修改主机名及映射)
+    - [1.3  修改电脑网络适配器（正在使用的网卡）后连接xshell](#13--修改电脑网络适配器正在使用的网卡后连接xshell)
+    - [1.4  配置  `jdk /hadoop` 环境变量](#14--配置--jdk-hadoop-环境变量)
+  - [2. 配置免密](#2-配置免密)
+    - [2.1 通过 `ssh-keygen  -t  rsa`  生产密钥](#21-通过-ssh-keygen---t--rsa--生产密钥)
+    - [2.2 通过 `ssh-copy  hadoop101(主机名/IP)`](#22-通过-ssh-copy--hadoop101主机名ip)
+    - [2.3 通过 `ssh hadoop101` 即可测试是否配置成功](#23-通过-ssh-hadoop101-即可测试是否配置成功)
+  - [3. 修改 `Hadoop` 配置文件](#3-修改-hadoop-配置文件)
+    - [3.1 配置 `Hadoop-env.sh` 文件，如下：](#31-配置-hadoop-envsh-文件如下)
+      - [3.2 配置 `yarn-env.sh` 文件，在末尾添加 `Java` 安装路径](#32-配置-yarn-envsh-文件在末尾添加-java-安装路径)
+      - [3.3  配置 `mapre-env.sh`文件，在末尾添加 `Java` 安装路径](#33--配置-mapre-envsh文件在末尾添加-java-安装路径)
+    - [3.2 配置 `core-site.xml` 文件](#32-配置-core-sitexml-文件)
+    - [3.3 配置 `hdfs-site.xml`文件](#33-配置-hdfs-sitexml文件)
+    - [3.4 配置 `yarn-site.xml` 文件](#34-配置-yarn-sitexml-文件)
+    - [3.5 配置 `mapred-site.xml` 文件](#35-配置-mapred-sitexml-文件)
+    - [3.6 配置 `slaves`文件](#36-配置-slaves文件)
+    - [3.7 分发到配置文件到子节点](#37-分发到配置文件到子节点)
+    - [3.8 格式化文件系统 `Hadoop namenode -format `](#38-格式化文件系统-hadoop-namenode--format-)
+
+
 # `Hadoop`完全分布式搭建
 
 ## 1. 安装  `java`/`hadoop`
