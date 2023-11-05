@@ -1,6 +1,3 @@
-[toc]
-
-# Sources 配置项
 - [Sources 配置项](#sources-配置项)
     - [spoldir  sources](#spoldir--sources)
     - [Avro sources](#avro-sources)
@@ -13,6 +10,8 @@
     - [hdfs sinks](#hdfs-sinks)
     - [logger sinks](#logger-sinks)
     - [avro sinks](#avro-sinks)
+
+# Sources 配置项
 
 ### spoldir  sources
 
@@ -124,7 +123,6 @@ jyp15.sinks.s6.type=avro
 jyp15.sinks.s6.hostname=localhost
 jyp15.sinks.s6.port=1025									#连接对应sources的端口
 ````
-
 
 
 
