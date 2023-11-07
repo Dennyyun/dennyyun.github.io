@@ -96,15 +96,21 @@ export	PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
 ### 2.1 通过 `ssh-keygen  -t  rsa`  生产密钥
 
-==连续回车，直至结束。==
+<mark>连续回车，直至结束。</mark>
 
 ### 2.2 通过 `ssh-copy  hadoop101(主机名/IP)`
 
-==复制密钥到需要免密登录的节点==
+````shell
+ssh-copy-id 	hadoop101
+ssh-copy-id 	hadoop102										#每个节点都需操作
+ssh-copy-id 	hadoop103
+````
+
+<mark>复制密钥到需要免密登录的节点</mark>
 
 ### 2.3 通过 `ssh hadoop101` 即可测试是否配置成功
 
-
+![image-20231107224907629](./Hadoop.assets/image-20231107224907629.png)
 
 ## 3. 修改 `Hadoop` 配置文件
 
@@ -131,7 +137,7 @@ export	JAVA_HOME=/opt/jdk..							 #java的安装目录
 ### 3.2 配置 `core-site.xml` 文件
 
 ````shell
-<configuration>
+
                #  <!--指定 NameNode 的地址 -->
                  <property>
                              <name>fs.defaultFS</name>
@@ -142,13 +148,13 @@ export	JAVA_HOME=/opt/jdk..							 #java的安装目录
                              <name>hadoop.tmp.dir</name>
                              <value>/opt/module/hadoop-3.1.3/data/tmp</value>
                  </property>
-</configuration>
+
 ````
 
 ### 3.3 配置 `hdfs-site.xml`文件
 
 ````shell
-<configuration>
+
             #    <!-- 指定 HDFS 副本的数量 -->
                  <property>
                              <name>dfs.replication</name>
@@ -157,20 +163,20 @@ export	JAVA_HOME=/opt/jdk..							 #java的安装目录
              #   <!-- namenode web 页面访问地址-->
                  <property>
                              <name>dfs.namenode.http-address</name>
-                             <value>hadoop101:9870</value>
+                             <value>hadoop101:50070</value>   #3.x以上版本9870
                  </property>
              #   <!-- secondarynamenode web 页面访问地址-->
                  <property>
                              <name>dfs.namenode.secondary.http-address</name>
-                            <value>hadoop102:9868</value>
+                            <value>hadoop103:50090</value>
                  </property>
-</configuration>
+
 ````
 
 ### 3.4 配置 `yarn-site.xml` 文件
 
 ```shell
-<configuration>
+
                 #<!-- 指定 mapreduce 采用 shuffle 机制 -->
                  <property>
                                  <name>yarn.nodemanager.aux-services</name>
@@ -179,21 +185,20 @@ export	JAVA_HOME=/opt/jdk..							 #java的安装目录
                 #<!-- 指定 ResourceManager 的地址-->
                  <property>
                                  <name>yarn.resourcemanager.hostname</name>
-                                 <value>hadoop101</value>
+                                 <value>hadoop102</value>
                  </property>
-</configuration>
+
 ```
 
 ### 3.5 配置 `mapred-site.xml` 文件
 
 ````shell
-<configuration>
-               #<!-- 指定 MapReduce 程序运行在 Yarn 上 -->
+
+              #<!-- 指定 MapReduce 程序运行在 Yarn 上 -->
                  <property>
                                  <name>mapreduce.framework.name</name>
                                  <value>yarn</value>
                  </property>
- </configuration>
 ````
 
 ### 3.6 配置 `slaves`文件 
@@ -207,11 +212,30 @@ hadoop103
 ### 3.7 分发到配置文件到子节点
 
 ````shell
-scp hadoop..../etc/hadoop  root@hadoop102:/hadoop.../etc/hadoop
-scp hadoop..../etc/hadoop  root@hadoop103:/hadoop.../etc/hadoop
+scp -r hadoop..../etc/hadoop  root@hadoop102:/hadoop.../etc/
+scp -r hadoop..../etc/hadoop  root@hadoop103:/hadoop.../etc/
 ````
 
 ### 3.8 格式化文件系统 `Hadoop namenode -format `
 
+> **注意:** 在 `namenode` 节点格式化
+
 出现 <mark> `successfully formatted`</mark> 即为成功
 
+
+
+### 3.9 关闭防火墙并启动 `hadoop`
+
+````shell
+systemctl stop firewalld
+
+
+start-dfs.sh
+start-yarn.sh				#在resourcemanager节点启动
+````
+
+效果如下：
+
+​							$\Downarrow$
+
+![image-20231107232854634](./Hadoop.assets/image-20231107232854634.png)
