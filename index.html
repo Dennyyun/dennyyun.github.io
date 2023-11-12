@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
@@ -101,6 +101,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -120,11 +121,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -147,10 +175,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/12/Flume-%E9%85%8D%E7%BD%AE%E9%A1%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Denny.JPG">
+      <meta itemprop="name" content="Denny">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Denny">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/11/12/Flume-%E9%85%8D%E7%BD%AE%E9%A1%B9/" class="post-title-link" itemprop="url">Flume 配置项</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-11-12 22:11:00 / Modified: 22:36:22" itemprop="dateCreated datePublished" datetime="2023-11-12T22:11:00+08:00">2023-11-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Flume 常见配置项
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/11/12/Flume-%E9%85%8D%E7%BD%AE%E9%A1%B9/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/12/Hadoop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/Denny.JPG">
       <meta itemprop="name" content="Denny">
       <meta itemprop="description" content="">
     </span>
@@ -172,7 +266,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-11-12 18:43:29 / Modified: 19:33:36" itemprop="dateCreated datePublished" datetime="2023-11-12T18:43:29+08:00">2023-11-12</time>
+              <time title="Created: 2023-11-12 18:43:29 / Modified: 21:58:25" itemprop="dateCreated datePublished" datetime="2023-11-12T18:43:29+08:00">2023-11-12</time>
             </span>
 
           
@@ -186,167 +280,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ul>
-<li><a href="#hadoop%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%AD%E5%BB%BA"><code>Hadoop</code>完全分布式搭建</a><ul>
-<li><a href="#1-%E5%AE%89%E8%A3%85--javahadoop">1. 安装  <code>java</code>&#x2F;<code>hadoop</code></a><ul>
-<li><a href="#11-%E4%BF%AE%E6%94%B9%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E5%8D%A1">1.1 修改虚拟机网卡</a></li>
-<li><a href="#12-%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E5%8F%8A%E6%98%A0%E5%B0%84">1.2 修改主机名及映射</a></li>
-<li><a href="#13--%E4%BF%AE%E6%94%B9%E7%94%B5%E8%84%91%E7%BD%91%E7%BB%9C%E9%80%82%E9%85%8D%E5%99%A8%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E7%BD%91%E5%8D%A1%E5%90%8E%E8%BF%9E%E6%8E%A5xshell">1.3  修改电脑网络适配器（正在使用的网卡）后连接xshell</a></li>
-<li><a href="#14--%E9%85%8D%E7%BD%AE--jdk-hadoop-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">1.4  配置  <code>jdk /hadoop</code> 环境变量</a></li>
-</ul>
-</li>
-<li><a href="#2-%E9%85%8D%E7%BD%AE%E5%85%8D%E5%AF%86">2. 配置免密</a><ul>
-<li><a href="#21-%E9%80%9A%E8%BF%87-ssh-keygen---t--rsa--%E7%94%9F%E4%BA%A7%E5%AF%86%E9%92%A5">2.1 通过 <code>ssh-keygen  -t  rsa</code>  生产密钥</a></li>
-<li><a href="#22-%E9%80%9A%E8%BF%87-ssh-copy--hadoop101%E4%B8%BB%E6%9C%BA%E5%90%8Dip">2.2 通过 <code>ssh-copy  hadoop101(主机名/IP)</code></a></li>
-<li><a href="#23-%E9%80%9A%E8%BF%87-ssh-hadoop101-%E5%8D%B3%E5%8F%AF%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F">2.3 通过 <code>ssh hadoop101</code> 即可测试是否配置成功</a></li>
-</ul>
-</li>
-<li><a href="#3-%E4%BF%AE%E6%94%B9-hadoop-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">3. 修改 <code>Hadoop</code> 配置文件</a><ul>
-<li><a href="#31-%E9%85%8D%E7%BD%AE-hadoop-envsh-%E6%96%87%E4%BB%B6%E5%A6%82%E4%B8%8B">3.1 配置 <code>Hadoop-env.sh</code> 文件，如下：</a><ul>
-<li><a href="#32-%E9%85%8D%E7%BD%AE-yarn-envsh-%E6%96%87%E4%BB%B6%E5%9C%A8%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0-java-%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84">3.2 配置 <code>yarn-env.sh</code> 文件，在末尾添加 <code>Java</code> 安装路径</a></li>
-<li><a href="#33--%E9%85%8D%E7%BD%AE-mapre-envsh%E6%96%87%E4%BB%B6%E5%9C%A8%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0-java-%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84">3.3  配置 <code>mapre-env.sh</code>文件，在末尾添加 <code>Java</code> 安装路径</a></li>
-</ul>
-</li>
-<li><a href="#32-%E9%85%8D%E7%BD%AE-core-sitexml-%E6%96%87%E4%BB%B6">3.2 配置 <code>core-site.xml</code> 文件</a></li>
-<li><a href="#33-%E9%85%8D%E7%BD%AE-hdfs-sitexml%E6%96%87%E4%BB%B6">3.3 配置 <code>hdfs-site.xml</code>文件</a></li>
-<li><a href="#34-%E9%85%8D%E7%BD%AE-yarn-sitexml-%E6%96%87%E4%BB%B6">3.4 配置 <code>yarn-site.xml</code> 文件</a></li>
-<li><a href="#35-%E9%85%8D%E7%BD%AE-mapred-sitexml-%E6%96%87%E4%BB%B6">3.5 配置 <code>mapred-site.xml</code> 文件</a></li>
-<li><a href="#36-%E9%85%8D%E7%BD%AE-slaves%E6%96%87%E4%BB%B6">3.6 配置 <code>slaves</code>文件</a></li>
-<li><a href="#37-%E5%88%86%E5%8F%91%E5%88%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%88%B0%E5%AD%90%E8%8A%82%E7%82%B9">3.7 分发到配置文件到子节点</a></li>
-<li><a href="#38-%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-hadoop-namenode--format-">3.8 格式化文件系统 <code>Hadoop namenode -format </code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="Hadoop完全分布式搭建"><a href="#Hadoop完全分布式搭建" class="headerlink" title="Hadoop完全分布式搭建"></a><code>Hadoop</code>完全分布式搭建</h1><h2 id="1-安装-java-hadoop"><a href="#1-安装-java-hadoop" class="headerlink" title="1. 安装  java&#x2F;hadoop"></a>1. 安装  <code>java</code>&#x2F;<code>hadoop</code></h2><h3 id="1-1-修改虚拟机网卡"><a href="#1-1-修改虚拟机网卡" class="headerlink" title="1.1 修改虚拟机网卡"></a>1.1 修改虚拟机网卡</h3><p><code>vim  /etc/sysconfig/network-scripts/ifcfg-ens33</code> 修改网卡配置文件</p>
-<p>​			$\Downarrow$</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=&quot;static&quot;					#将IP设置为静态</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加以下内容</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">列</span></span><br><span class="line">IPADDR=192.168.123.12		  #本机设置的IP</span><br><span class="line">NETMASK=255.255.255.0		#子网掩码</span><br><span class="line">GATEWAY=192.168.123.2		#网关</span><br><span class="line">DNS1=114.114.114.114</span><br><span class="line">DNS2=192.168.123.2</span><br></pre></td></tr></table></figure>
-
-<p>​			$\Downarrow$</p>
-<p><code>systemctl    restart   network</code> 重启网卡生效  （通过  <code>IP  a</code> 即可查看效果）</p>
-<h3 id="1-2-修改主机名及映射"><a href="#1-2-修改主机名及映射" class="headerlink" title="1.2 修改主机名及映射"></a>1.2 修改主机名及映射</h3><p><code>hostnamectl   set-hostname  (主机名)</code> $\Longrightarrow$  <code>bash</code>   $\Longrightarrow$ <code>vim /etc/hosts</code>   </p>
-<p>​										$\Downarrow$  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.123.12（主机IP地址） 		主机名</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-3-修改电脑网络适配器（正在使用的网卡）后连接xshell"><a href="#1-3-修改电脑网络适配器（正在使用的网卡）后连接xshell" class="headerlink" title="1.3  修改电脑网络适配器（正在使用的网卡）后连接xshell"></a>1.3  修改电脑网络适配器（正在使用的网卡）后连接xshell</h3><p>右击选择属性，选择IPv4 ，双击进入修改如下  (IP  地址不唯一)</p>
-<p>​						$\Downarrow$</p>
-<p><img src="/./../images/image-20231105221513377.png" alt="image-20231105221513377"></p>
-<h3 id="1-4-配置-jdk-hadoop-环境变量"><a href="#1-4-配置-jdk-hadoop-环境变量" class="headerlink" title="1.4  配置  jdk /hadoop 环境变量"></a>1.4  配置  <code>jdk /hadoop</code> 环境变量</h3><p>（通过<code>Xshell</code> 将所需安装包传输到Linux虚拟机）</p>
-<p><code>vim   /etc/profile</code>打开配置文件  $\Longrightarrow$  在末尾添加以下内容   </p>
-<p>​										$\Downarrow$</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export	JAVA_HOME=/opt/jdk..							 #java的安装目录</span><br><span class="line">export	PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"></span><br><span class="line">export	HADOOP_HOME=/opt/hadoop....				#hadoop的安装目录</span><br><span class="line">export	PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</span><br></pre></td></tr></table></figure>
-
-<p>​							$\Downarrow$</p>
-<p><code>source /etc/profile</code>  重新加载配置文件   $\Longrightarrow$  <code>java -version  </code>&#x2F;<code>hadoop version</code> 查看效果</p>
-<p>​											$\Downarrow$</p>
-<p><img src="/./../images/image-20231105222928300.png" alt="image-20231105222928300"></p>
-<p><img src="/./../images/image-20231105223110316.png" alt="image-20231105223110316"></p>
-<h2 id="2-配置免密"><a href="#2-配置免密" class="headerlink" title="2. 配置免密"></a>2. 配置免密</h2><h3 id="2-1-通过-ssh-keygen-t-rsa-生产密钥"><a href="#2-1-通过-ssh-keygen-t-rsa-生产密钥" class="headerlink" title="2.1 通过 ssh-keygen  -t  rsa  生产密钥"></a>2.1 通过 <code>ssh-keygen  -t  rsa</code>  生产密钥</h3><p><mark>连续回车，直至结束。</mark></p>
-<h3 id="2-2-通过-ssh-copy-hadoop101-主机名-IP"><a href="#2-2-通过-ssh-copy-hadoop101-主机名-IP" class="headerlink" title="2.2 通过 ssh-copy  hadoop101(主机名/IP)"></a>2.2 通过 <code>ssh-copy  hadoop101(主机名/IP)</code></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id 	hadoop101</span><br><span class="line">ssh-copy-id 	hadoop102										#每个节点都需操作</span><br><span class="line">ssh-copy-id 	hadoop103</span><br></pre></td></tr></table></figure>
-
-<p><mark>复制密钥到需要免密登录的节点</mark></p>
-<h3 id="2-3-通过-ssh-hadoop101-即可测试是否配置成功"><a href="#2-3-通过-ssh-hadoop101-即可测试是否配置成功" class="headerlink" title="2.3 通过 ssh hadoop101 即可测试是否配置成功"></a>2.3 通过 <code>ssh hadoop101</code> 即可测试是否配置成功</h3><p><img src="/./../images/image-20231107224907629.png" alt="image-20231107224907629"></p>
-<h2 id="3-修改-Hadoop-配置文件"><a href="#3-修改-Hadoop-配置文件" class="headerlink" title="3. 修改 Hadoop 配置文件"></a>3. 修改 <code>Hadoop</code> 配置文件</h2><p>进入 <code>Hadoop</code> 安装目录下的 <code>/etc/hadoop</code> 目录</p>
-<h3 id="3-1-配置-Hadoop-env-sh-文件，如下："><a href="#3-1-配置-Hadoop-env-sh-文件，如下：" class="headerlink" title="3.1 配置 Hadoop-env.sh 文件，如下："></a>3.1 配置 <code>Hadoop-env.sh</code> 文件，如下：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export	JAVA_HOME=/opt/jdk..							 #java的安装目录</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-2-配置-yarn-env-sh-文件，在末尾添加-Java-安装路径"><a href="#3-2-配置-yarn-env-sh-文件，在末尾添加-Java-安装路径" class="headerlink" title="3.2 配置 yarn-env.sh 文件，在末尾添加 Java 安装路径"></a>3.2 配置 <code>yarn-env.sh</code> 文件，在末尾添加 <code>Java</code> 安装路径</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export	JAVA_HOME=/opt/jdk..							 #java的安装目录</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-3-配置-mapre-env-sh文件，在末尾添加-Java-安装路径"><a href="#3-3-配置-mapre-env-sh文件，在末尾添加-Java-安装路径" class="headerlink" title="3.3  配置 mapre-env.sh文件，在末尾添加 Java 安装路径"></a>3.3  配置 <code>mapre-env.sh</code>文件，在末尾添加 <code>Java</code> 安装路径</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export	JAVA_HOME=/opt/jdk..							 #java的安装目录</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-配置-core-site-xml-文件"><a href="#3-2-配置-core-site-xml-文件" class="headerlink" title="3.2 配置 core-site.xml 文件"></a>3.2 配置 <code>core-site.xml</code> 文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> &lt;!--指定 NameNode 的地址 --&gt;</span></span><br><span class="line">  &lt;property&gt;</span><br><span class="line">              &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">              &lt;value&gt;hdfs://hadoop101:9000&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> &lt;!-- 指定 hadoop 运行时产生数据的存储目录 --&gt;</span></span><br><span class="line">  &lt;property&gt;</span><br><span class="line">              &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">              &lt;value&gt;/opt/module/hadoop-3.1.3/data/tmp&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-配置-hdfs-site-xml文件"><a href="#3-3-配置-hdfs-site-xml文件" class="headerlink" title="3.3 配置 hdfs-site.xml文件"></a>3.3 配置 <code>hdfs-site.xml</code>文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">   &lt;!-- 指定 HDFS 副本的数量 --&gt;</span></span><br><span class="line">     &lt;property&gt;</span><br><span class="line">                 &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">                 &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">     &lt;/property&gt;</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">  &lt;!-- namenode web 页面访问地址--&gt;</span></span><br><span class="line">     &lt;property&gt;</span><br><span class="line">                 &lt;name&gt;dfs.namenode.http-address&lt;/name&gt;</span><br><span class="line">                 &lt;value&gt;hadoop101:50070&lt;/value&gt;   #3.x以上版本9870</span><br><span class="line">     &lt;/property&gt;</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">  &lt;!-- secondarynamenode web 页面访问地址--&gt;</span></span><br><span class="line">     &lt;property&gt;</span><br><span class="line">                 &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;hadoop103:50090&lt;/value&gt;</span><br><span class="line">     &lt;/property&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-配置-yarn-site-xml-文件"><a href="#3-4-配置-yarn-site-xml-文件" class="headerlink" title="3.4 配置 yarn-site.xml 文件"></a>3.4 配置 <code>yarn-site.xml</code> 文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">&lt;!-- 指定 mapreduce 采用 shuffle 机制 --&gt;</span></span><br><span class="line"> &lt;property&gt;</span><br><span class="line">                 &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">                 &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line"> &lt;/property&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">&lt;!-- 指定 ResourceManager 的地址--&gt;</span></span><br><span class="line"> &lt;property&gt;</span><br><span class="line">                 &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">                 &lt;value&gt;hadoop102&lt;/value&gt;</span><br><span class="line"> &lt;/property&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-5-配置-mapred-site-xml-文件"><a href="#3-5-配置-mapred-site-xml-文件" class="headerlink" title="3.5 配置 mapred-site.xml 文件"></a>3.5 配置 <code>mapred-site.xml</code> 文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">&lt;!-- 指定 MapReduce 程序运行在 Yarn 上 --&gt;</span></span><br><span class="line">   &lt;property&gt;</span><br><span class="line">                   &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">                   &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">   &lt;/property&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-6-配置-slaves文件"><a href="#3-6-配置-slaves文件" class="headerlink" title="3.6 配置 slaves文件"></a>3.6 配置 <code>slaves</code>文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop101</span><br><span class="line">hadoop102</span><br><span class="line">hadoop103</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-7-分发到配置文件到子节点"><a href="#3-7-分发到配置文件到子节点" class="headerlink" title="3.7 分发到配置文件到子节点"></a>3.7 分发到配置文件到子节点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r hadoop..../etc/hadoop  root@hadoop102:/hadoop.../etc/</span><br><span class="line">scp -r hadoop..../etc/hadoop  root@hadoop103:/hadoop.../etc/</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-8-格式化文件系统-Hadoop-namenode-format"><a href="#3-8-格式化文件系统-Hadoop-namenode-format" class="headerlink" title="3.8 格式化文件系统 Hadoop namenode -format "></a>3.8 格式化文件系统 <code>Hadoop namenode -format </code></h3><blockquote>
-<p><strong>注意:</strong> 在 <code>namenode</code> 节点格式化</p>
-</blockquote>
-<p>出现 <mark> <code>successfully formatted</code></mark> 即为成功</p>
-<h3 id="3-9-关闭防火墙并启动-hadoop"><a href="#3-9-关闭防火墙并启动-hadoop" class="headerlink" title="3.9 关闭防火墙并启动 hadoop"></a>3.9 关闭防火墙并启动 <code>hadoop</code></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start-dfs.sh</span><br><span class="line">start-yarn.sh				#在resourcemanager节点启动</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p>​						$\Downarrow$</p>
-<p><img src="/./../images/image-20231107232854634.png" alt="image-20231107232854634"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/09/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Denny">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Denny">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/09/hello-world/" class="post-title-link" itemprop="url">你好！学习hexo/</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-11-09 22:22:31 / Modified: 22:36:56" itemprop="dateCreated datePublished" datetime="2023-11-09T22:22:31+08:00">2023-11-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+          <p>Hadoop 完全分布式搭建步骤</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/11/12/Hadoop/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -368,7 +310,7 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/08/HDFS%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/Denny.JPG">
       <meta itemprop="name" content="Denny">
       <meta itemprop="description" content="">
     </span>
@@ -396,7 +338,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-11-10 11:00:36" itemprop="dateModified" datetime="2023-11-10T11:00:36+08:00">2023-11-10</time>
+                <time title="Modified: 2023-11-12 20:20:03" itemprop="dateModified" datetime="2023-11-12T20:20:03+08:00">2023-11-12</time>
               </span>
 
           
@@ -410,47 +352,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p><strong>创建目录</strong>  :</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hadoop  fs  -mkdir  /test								#在hdfs 根目录创建test文件夹（目录）</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p><strong>查看<code>test.txt</code>  文件的内容</strong>  ：</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadop fs  -cat  /test.txt</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p><strong>列出根目录下的所有列表</strong>   ：</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -ls   /</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p><strong>从本地上传到hdfs根目录</strong>  ：</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop  fs  -put   test.txt    /						#从本地上传test.txt 文件到hdfs 根目录</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p><strong>从hdfs 下载到本地</strong>  ：</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop  fs  -get  /test.txt    /						#从hdfs下载test.txt 文件到本地</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p><strong>从本地剪贴到hdfs根目录</strong>  :</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop   fs  -MoveFromLocal    test.txt   /   </span><br></pre></td></tr></table></figure>
-
-
+          <p>Hadoop HDFS 文件目录操作</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/11/08/HDFS%E6%93%8D%E4%BD%9C/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -523,6 +433,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Denny"
+      src="/images/Denny.JPG">
   <p class="site-author-name" itemprop="name">Denny</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -565,8 +477,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Denny</span>
 </div>
+<!--
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
+-->
 
         
 
@@ -602,6 +516,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
