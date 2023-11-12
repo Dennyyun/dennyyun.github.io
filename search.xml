@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Flume 配置项</title>
-    <url>/2023/11/12/Flume-%E9%85%8D%E7%BD%AE%E9%A1%B9/</url>
-    <content><![CDATA[<p>Flume 常见配置项</p>
-<span id="more"></span>
-
-<h1 id="Sources-配置项"><a href="#Sources-配置项" class="headerlink" title="Sources 配置项"></a>Sources 配置项</h1><h3 id="spoldir-sources"><a href="#spoldir-sources" class="headerlink" title="spoldir sources"></a>spoldir sources</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sources.r1.type=spooldir</span><br><span class="line">jyp15.sources.r1.spoolDir=/root/jyp/data</span><br><span class="line">jyp15.sources.r1.fileSuffix=.over</span><br><span class="line">jyp15.sources.r1.deletePolicy=never</span><br><span class="line">jyp15.sources.r1.fileHeader=true</span><br><span class="line">jyp15.sources.r1.fileHeaderKey=path</span><br><span class="line">jyp15.sources.r1.basenameHeader=true</span><br><span class="line">jyp15.sources.r1.basenameHeaderKey=filename</span><br><span class="line">jyp15.sources.r1.includePattern=\\S.*(txt|json)</span><br><span class="line">jyp15.sources.r1.ignorePattern=\\S.*(over|tmp)</span><br><span class="line">jyp15.sources.r1.batchSize= 100</span><br><span class="line">jyp15.sources.r1.pollDelay=1000</span><br><span class="line">jyp15.sources.r1.recursiveDirectorySearch=true</span><br></pre></td></tr></table></figure>
-
-<h3 id="Avro-sources"><a href="#Avro-sources" class="headerlink" title="Avro sources"></a>Avro sources</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sources.r1.type=avro</span><br><span class="line">jyp15.sources.r1.bind=0.0.0.0								#IP地址</span><br><span class="line">jyp15.sources.r1.port=1026									#端口</span><br></pre></td></tr></table></figure>
-
-<h3 id="Exec-sources"><a href="#Exec-sources" class="headerlink" title="Exec sources"></a>Exec sources</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sources.r1.type= exec</span><br><span class="line">jyp15.sources.r1.command= tail -F /var/log/syslog						 #要执行的外部命令,该命令的输出将作为事件发送</span><br><span class="line">jyp15.sources.r1.restart= true															#命令执行退出后是否重新启动命令,默认false不重启</span><br><span class="line">jyp15.sources.r1.batchSize= 20														#每批发送的事件数目</span><br></pre></td></tr></table></figure>
-
-<h3 id="netcat-sources"><a href="#netcat-sources" class="headerlink" title="netcat sources"></a>netcat sources</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sources.r1.type=netcat</span><br><span class="line">jyp15.sources.r1.bind=localhost							 #IP地址/映射绑定的主机名</span><br><span class="line">jyp15.sources.r1.port=44444							      #绑定的端口	</span><br><span class="line">jyp15.sources.r1.ack-every-event= true				#是否每接收一个事件就发送确认数据</span><br></pre></td></tr></table></figure>
-
-<h1 id="Channels-配置项"><a href="#Channels-配置项" class="headerlink" title="Channels 配置项"></a>Channels 配置项</h1><h3 id="file-channels"><a href="#file-channels" class="headerlink" title="file channels"></a>file channels</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.channels.c3.type=file</span><br><span class="line">jyp15.channels.c3.dataDirs=/home/jyp/filechannelTwo/data</span><br><span class="line">jyp15.channels.c3.checkpointDir=/home/jyp/filechannelTwo/checkpoint</span><br><span class="line">jyp15.channels.c3.transactionCapacity=10000</span><br><span class="line">jyp15.channels.c3.capacity=100000</span><br><span class="line">jyp15.channels.c3.checkpointInterval=30000</span><br></pre></td></tr></table></figure>
-
-<h3 id="memory-channels"><a href="#memory-channels" class="headerlink" title="memory channels"></a>memory channels</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.channels.c4.type=memory</span><br><span class="line">jyp15.channels.c4.capacity=10000</span><br><span class="line">jyp15.channels.c4.transactionCapacity = 100</span><br></pre></td></tr></table></figure>
-
-<h1 id="sinks-配置项"><a href="#sinks-配置项" class="headerlink" title="sinks 配置项"></a>sinks 配置项</h1><h3 id="hdfs-sinks"><a href="#hdfs-sinks" class="headerlink" title="hdfs sinks"></a>hdfs sinks</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sinks.s4.type=hdfs</span><br><span class="line">jyp15.sinks.s4.hdfs.path=hdfs://192.168.84.15:8020/bigdata/%y-%m-%d/%H-%M</span><br><span class="line">jyp15.sinks.s4.hdfs.filePrefix= log-</span><br><span class="line">jyp15.sinks.s4.hdfs.fileSuffix= .bigdata</span><br><span class="line">jyp15.sinks.s4.hdfs.inUsePrefix= flum-</span><br><span class="line">jyp15.sinks.s4.hdfs.inUseSuffix= .tmp</span><br><span class="line">jyp15.sinks.s4.hdfs.rollCount=10</span><br><span class="line">jyp15.sinks.s4.hdfs.rollSize=0</span><br><span class="line">jyp15.sinks.s4.hdfs.rollInterval= 0</span><br><span class="line">jyp15.sinks.s4.hdfs.batchSize= 100</span><br><span class="line">jyp15.sinks.s4.hdfs.useLocalTimeStamp=true</span><br><span class="line">jyp15.sinks.s4.hdfs.writeFormat= Text</span><br><span class="line">jyp15.sinks.s4.hdfs.fileType= DataStream</span><br><span class="line">jyp15.sinks.s4.hdfs.threadsPoolSize= 10</span><br><span class="line">jyp15.sinks.s4.hdfs.idleTimeout= 10</span><br><span class="line">jyp15.sinks.s4.hdfs.round= true</span><br><span class="line">jyp15.sinks.s4.hdfs.roundValue= 10</span><br><span class="line">jyp15.sinks.s4.hdfs.roundUnit= miunte</span><br></pre></td></tr></table></figure>
-
-<h3 id="logger-sinks"><a href="#logger-sinks" class="headerlink" title="logger sinks"></a>logger sinks</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sinks.s5.type= logger</span><br><span class="line">jyp15.sinks.s5.maxBytesToLoge=123</span><br></pre></td></tr></table></figure>
-
-<h3 id="avro-sinks"><a href="#avro-sinks" class="headerlink" title="avro sinks"></a>avro sinks</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sinks.s6.type=avro</span><br><span class="line">jyp15.sinks.s6.hostname=localhost</span><br><span class="line">jyp15.sinks.s6.port=1025									#连接对应sources的端口</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>HADOOP hdfs操作</title>
     <url>/2023/11/08/HDFS%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>Hadoop HDFS 文件目录操作</p>
@@ -72,6 +47,31 @@
 
 
 
+]]></content>
+  </entry>
+  <entry>
+    <title>Flume 配置项</title>
+    <url>/2023/11/12/Flume-%E9%85%8D%E7%BD%AE%E9%A1%B9/</url>
+    <content><![CDATA[<p>Flume 常见配置项</p>
+<span id="more"></span>
+
+<h1 id="Sources-配置项"><a href="#Sources-配置项" class="headerlink" title="Sources 配置项"></a>Sources 配置项</h1><h3 id="spoldir-sources"><a href="#spoldir-sources" class="headerlink" title="spoldir sources"></a>spoldir sources</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sources.r1.type=spooldir</span><br><span class="line">jyp15.sources.r1.spoolDir=/root/jyp/data</span><br><span class="line">jyp15.sources.r1.fileSuffix=.over</span><br><span class="line">jyp15.sources.r1.deletePolicy=never</span><br><span class="line">jyp15.sources.r1.fileHeader=true</span><br><span class="line">jyp15.sources.r1.fileHeaderKey=path</span><br><span class="line">jyp15.sources.r1.basenameHeader=true</span><br><span class="line">jyp15.sources.r1.basenameHeaderKey=filename</span><br><span class="line">jyp15.sources.r1.includePattern=\\S.*(txt|json)</span><br><span class="line">jyp15.sources.r1.ignorePattern=\\S.*(over|tmp)</span><br><span class="line">jyp15.sources.r1.batchSize= 100</span><br><span class="line">jyp15.sources.r1.pollDelay=1000</span><br><span class="line">jyp15.sources.r1.recursiveDirectorySearch=true</span><br></pre></td></tr></table></figure>
+
+<h3 id="Avro-sources"><a href="#Avro-sources" class="headerlink" title="Avro sources"></a>Avro sources</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sources.r1.type=avro</span><br><span class="line">jyp15.sources.r1.bind=0.0.0.0								#IP地址</span><br><span class="line">jyp15.sources.r1.port=1026									#端口</span><br></pre></td></tr></table></figure>
+
+<h3 id="Exec-sources"><a href="#Exec-sources" class="headerlink" title="Exec sources"></a>Exec sources</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sources.r1.type= exec</span><br><span class="line">jyp15.sources.r1.command= tail -F /var/log/syslog						 #要执行的外部命令,该命令的输出将作为事件发送</span><br><span class="line">jyp15.sources.r1.restart= true															#命令执行退出后是否重新启动命令,默认false不重启</span><br><span class="line">jyp15.sources.r1.batchSize= 20														#每批发送的事件数目</span><br></pre></td></tr></table></figure>
+
+<h3 id="netcat-sources"><a href="#netcat-sources" class="headerlink" title="netcat sources"></a>netcat sources</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sources.r1.type=netcat</span><br><span class="line">jyp15.sources.r1.bind=localhost							 #IP地址/映射绑定的主机名</span><br><span class="line">jyp15.sources.r1.port=44444							      #绑定的端口	</span><br><span class="line">jyp15.sources.r1.ack-every-event= true				#是否每接收一个事件就发送确认数据</span><br></pre></td></tr></table></figure>
+
+<h1 id="Channels-配置项"><a href="#Channels-配置项" class="headerlink" title="Channels 配置项"></a>Channels 配置项</h1><h3 id="file-channels"><a href="#file-channels" class="headerlink" title="file channels"></a>file channels</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.channels.c3.type=file</span><br><span class="line">jyp15.channels.c3.dataDirs=/home/jyp/filechannelTwo/data</span><br><span class="line">jyp15.channels.c3.checkpointDir=/home/jyp/filechannelTwo/checkpoint</span><br><span class="line">jyp15.channels.c3.transactionCapacity=10000</span><br><span class="line">jyp15.channels.c3.capacity=100000</span><br><span class="line">jyp15.channels.c3.checkpointInterval=30000</span><br></pre></td></tr></table></figure>
+
+<h3 id="memory-channels"><a href="#memory-channels" class="headerlink" title="memory channels"></a>memory channels</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.channels.c4.type=memory</span><br><span class="line">jyp15.channels.c4.capacity=10000</span><br><span class="line">jyp15.channels.c4.transactionCapacity = 100</span><br></pre></td></tr></table></figure>
+
+<h1 id="sinks-配置项"><a href="#sinks-配置项" class="headerlink" title="sinks 配置项"></a>sinks 配置项</h1><h3 id="hdfs-sinks"><a href="#hdfs-sinks" class="headerlink" title="hdfs sinks"></a>hdfs sinks</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sinks.s4.type=hdfs</span><br><span class="line">jyp15.sinks.s4.hdfs.path=hdfs://192.168.84.15:8020/bigdata/%y-%m-%d/%H-%M</span><br><span class="line">jyp15.sinks.s4.hdfs.filePrefix= log-</span><br><span class="line">jyp15.sinks.s4.hdfs.fileSuffix= .bigdata</span><br><span class="line">jyp15.sinks.s4.hdfs.inUsePrefix= flum-</span><br><span class="line">jyp15.sinks.s4.hdfs.inUseSuffix= .tmp</span><br><span class="line">jyp15.sinks.s4.hdfs.rollCount=10</span><br><span class="line">jyp15.sinks.s4.hdfs.rollSize=0</span><br><span class="line">jyp15.sinks.s4.hdfs.rollInterval= 0</span><br><span class="line">jyp15.sinks.s4.hdfs.batchSize= 100</span><br><span class="line">jyp15.sinks.s4.hdfs.useLocalTimeStamp=true</span><br><span class="line">jyp15.sinks.s4.hdfs.writeFormat= Text</span><br><span class="line">jyp15.sinks.s4.hdfs.fileType= DataStream</span><br><span class="line">jyp15.sinks.s4.hdfs.threadsPoolSize= 10</span><br><span class="line">jyp15.sinks.s4.hdfs.idleTimeout= 10</span><br><span class="line">jyp15.sinks.s4.hdfs.round= true</span><br><span class="line">jyp15.sinks.s4.hdfs.roundValue= 10</span><br><span class="line">jyp15.sinks.s4.hdfs.roundUnit= miunte</span><br></pre></td></tr></table></figure>
+
+<h3 id="logger-sinks"><a href="#logger-sinks" class="headerlink" title="logger sinks"></a>logger sinks</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sinks.s5.type= logger</span><br><span class="line">jyp15.sinks.s5.maxBytesToLoge=123</span><br></pre></td></tr></table></figure>
+
+<h3 id="avro-sinks"><a href="#avro-sinks" class="headerlink" title="avro sinks"></a>avro sinks</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jyp15.sinks.s6.type=avro</span><br><span class="line">jyp15.sinks.s6.hostname=localhost</span><br><span class="line">jyp15.sinks.s6.port=1025									#连接对应sources的端口</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -140,11 +140,6 @@
   <entry>
     <title>spark</title>
     <url>/2023/11/12/spark/</url>
-    <content><![CDATA[<p>Nothing!<br>Nothing!</p>
-<p>Nothing!</p>
-<p>Nothing!<br>Nothing!</p>
-<p>Nothing!</p>
-<p>Nothing!<br>Nothing!</p>
-]]></content>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
