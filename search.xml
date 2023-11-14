@@ -135,6 +135,72 @@
 
 <p>效果如下：</p>
 <p><img src="/./../images/image-20231107232854634.png" alt="image-20231107232854634"></p>
+<h1 id="4-词频统计"><a href="#4-词频统计" class="headerlink" title="4. 词频统计"></a>4. 词频统计</h1><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+  </entry>
+  <entry>
+    <title>Flume 配置项</title>
+    <url>/2023/11/14/%E5%AE%9E%E9%AA%8C%E4%B8%80%20Spark%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%9AStandalone%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="实验一-Spark安装部署：Standalone模式"><a href="#实验一-Spark安装部署：Standalone模式" class="headerlink" title="实验一 Spark安装部署：Standalone模式"></a>实验一 Spark安装部署：Standalone模式</h1><span id="more"></span>
+
+<h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><h3 id="切换到spark-压缩包所在目录并将其解压到用户的根目录下："><a href="#切换到spark-压缩包所在目录并将其解压到用户的根目录下：" class="headerlink" title="切换到spark 压缩包所在目录并将其解压到用户的根目录下："></a>切换到spark 压缩包所在目录并将其解压到用户的根目录下：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home/zkpk/tgz/spark/</span><br><span class="line"></span><br><span class="line">tar -zxvf spark-2.1.1-bin-hadoop2.7.tgz -C /home/zkpk</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="进入用户根目录查看是否解压成功"><a href="#进入用户根目录查看是否解压成功" class="headerlink" title="进入用户根目录查看是否解压成功"></a>进入用户根目录查看是否解压成功</h3><p><img src="/./../images/image-20231114233955502.png" alt="image-20231114233955502"></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><h4 id="编辑环境变量配置文件，在末尾添加spark环境（安装路径）"><a href="#编辑环境变量配置文件，在末尾添加spark环境（安装路径）" class="headerlink" title="编辑环境变量配置文件，在末尾添加spark环境（安装路径）"></a>编辑环境变量配置文件，在末尾添加spark环境（安装路径）</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim .bash_profile</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><img src="/./../images/image-20231114234024117.png" alt="image-20231114234024117"></p>
+</blockquote>
+<h4 id="重新加载配置文件，使其添加的环境变量生效。"><a href="#重新加载配置文件，使其添加的环境变量生效。" class="headerlink" title="重新加载配置文件，使其添加的环境变量生效。"></a>重新加载配置文件，使其添加的环境变量生效。</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="将其拷贝到slave01，slave02-上的-home-zkpk目录下"><a href="#将其拷贝到slave01，slave02-上的-home-zkpk目录下" class="headerlink" title="将其拷贝到slave01，slave02 上的&#x2F;home&#x2F;zkpk目录下"></a>将其拷贝到slave01，slave02 上的&#x2F;home&#x2F;zkpk目录下</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp .bash_profile slave02:/home/zkpk/</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="切换到slave01，slave02上重新加载配置文件"><a href="#切换到slave01，slave02上重新加载配置文件" class="headerlink" title="切换到slave01，slave02上重新加载配置文件"></a>切换到slave01，slave02上重新加载配置文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh  slave01</span><br><span class="line"></span><br><span class="line">source  .bash_profile</span><br><span class="line"></span><br><span class="line">exit 							#退出登入</span><br><span class="line"></span><br><span class="line">ssh slave02</span><br><span class="line"></span><br><span class="line">source  .bash_profile</span><br><span class="line"></span><br><span class="line">exit 						#退出登入</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改slaves文件"><a href="#修改slaves文件" class="headerlink" title="修改slaves文件"></a>修改slaves文件</h3><h4 id="进入spark配置文件目录，将conf-目录下的slaves-template文件重命名为slaves"><a href="#进入spark配置文件目录，将conf-目录下的slaves-template文件重命名为slaves" class="headerlink" title="进入spark配置文件目录，将conf 目录下的slaves.template文件重命名为slaves"></a>进入spark配置文件目录，将conf 目录下的slaves.template文件重命名为slaves</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home/zkpk/spark-2.1.1-bin-hadoop2.7/conf/</span><br><span class="line"></span><br><span class="line">mv slaves.template slaves</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="编辑slaves文件，将原来的内容替换为如下内容，并保存退出。"><a href="#编辑slaves文件，将原来的内容替换为如下内容，并保存退出。" class="headerlink" title="编辑slaves文件，将原来的内容替换为如下内容，并保存退出。"></a>编辑slaves文件，将原来的内容替换为如下内容，并保存退出。</h4><p><img src="/./../images/image-20231114234242143.png" alt="image-20231114234242143"></p>
+<h3 id="修改conf目录中的spark-env-sh文件"><a href="#修改conf目录中的spark-env-sh文件" class="headerlink" title="修改conf目录中的spark-env.sh文件"></a>修改conf目录中的spark-env.sh文件</h3><h4 id="重命名文件spark-env-sh-template为spark-env-sh"><a href="#重命名文件spark-env-sh-template为spark-env-sh" class="headerlink" title="重命名文件spark-env.sh.template为spark-env.sh"></a>重命名文件spark-env.sh.template为spark-env.sh</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mv spark-env.sh.template spark-env.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="编辑spark-env-sh文件，将以下内容添加到末尾"><a href="#编辑spark-env-sh文件，将以下内容添加到末尾" class="headerlink" title="编辑spark-env.sh文件，将以下内容添加到末尾"></a>编辑spark-env.sh文件，将以下内容添加到末尾</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim spark-env.sh</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>内容如下:</strong></p>
+</blockquote>
+<p><img src="/./../images/image-20231114234358587.png" alt="image-20231114234358587"></p>
+<h3 id="将经过配置的spark主目录远程拷贝到另外两个从节点slave01和slave02"><a href="#将经过配置的spark主目录远程拷贝到另外两个从节点slave01和slave02" class="headerlink" title="将经过配置的spark主目录远程拷贝到另外两个从节点slave01和slave02"></a>将经过配置的spark主目录远程拷贝到另外两个从节点slave01和slave02</h3><h4 id="切换到用户根目录，远程拷贝到slave01，slave02-的同目录上"><a href="#切换到用户根目录，远程拷贝到slave01，slave02-的同目录上" class="headerlink" title="切换到用户根目录，远程拷贝到slave01，slave02 的同目录上"></a>切换到用户根目录，远程拷贝到slave01，slave02 的同目录上</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp -r spark-2.1.1-bin-hadoop2.7/ zkpk@slave01:/home/zkpk/</span><br><span class="line"></span><br><span class="line">scp -r spark-2.1.1-bin-hadoop2.7/ zkpk@slave02:/home/zkpk/</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="启动spark集群"><a href="#启动spark集群" class="headerlink" title="启动spark集群"></a>启动spark集群</h3><h4 id="进入master节点-的spark的sbin目录"><a href="#进入master节点-的spark的sbin目录" class="headerlink" title="进入master节点 的spark的sbin目录"></a>进入master节点 的spark的sbin目录</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd spark-2.1.1-bin-hadoop2.7/sbin/</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="运行start-all-sh启动spark集群，然后分别在master、slave01和slave02上使用jps命令查看进程，分别出现master和worker进程，说明集群启动成功"><a href="#运行start-all-sh启动spark集群，然后分别在master、slave01和slave02上使用jps命令查看进程，分别出现master和worker进程，说明集群启动成功" class="headerlink" title="运行start-all.sh启动spark集群，然后分别在master、slave01和slave02上使用jps命令查看进程，分别出现master和worker进程，说明集群启动成功"></a>运行start-all.sh启动spark集群，然后分别在master、slave01和slave02上使用jps命令查看进程，分别出现master和worker进程，说明集群启动成功</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./start-all.sh</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../images/image-20231114234502727.png" alt="image-20231114234502727"></p>
+<h3 id="验证spark-standalone模式部署正确"><a href="#验证spark-standalone模式部署正确" class="headerlink" title="验证spark standalone模式部署正确"></a>验证spark standalone模式部署正确</h3><h4 id="在master节点菜单”Application”中-打开浏览器访问spark-webui界面地址：http-master-8080，出现类似下图界面"><a href="#在master节点菜单”Application”中-打开浏览器访问spark-webui界面地址：http-master-8080，出现类似下图界面" class="headerlink" title="在master节点菜单”Application”中 打开浏览器访问spark webui界面地址：http://master:8080，出现类似下图界面:"></a>在master节点菜单”Application”中 打开浏览器访问spark webui界面地址：<a href="http://master:8080，出现类似下图界面">http://master:8080，出现类似下图界面</a>:</h4><p><img src="/./../images/image-20231114234529689.png" alt="image-20231114234529689"></p>
+<h3 id="命令行提交job到spark集群"><a href="#命令行提交job到spark集群" class="headerlink" title="命令行提交job到spark集群"></a>命令行提交job到spark集群</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 --num-executors 3 --driver-memory 1g --executor-memory 1g --executor-cores 1 examples/jars/spark-examples_2.11-2.1.1.jar 10</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>效果如下：</strong></p>
+</blockquote>
+<p><img src="/./../images/image-20231114234613687.png" alt="image-20231114234613687"></p>
 ]]></content>
   </entry>
 </search>
