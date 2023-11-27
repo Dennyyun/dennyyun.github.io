@@ -150,6 +150,8 @@
     <title>java web基础</title>
     <url>/2023/11/27/java-web%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<p>Java 基础</p>
+<span id="more"></span>
+
 <h1 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h1><h2 id="中文乱码处理"><a href="#中文乱码处理" class="headerlink" title="中文乱码处理"></a>中文乱码处理</h2><figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">response.setContentType(<span class="string">&quot;text/html;charset=UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <h2 id="端口8080占用处理"><a href="#端口8080占用处理" class="headerlink" title="端口8080占用处理"></a>端口8080占用处理</h2><p><img src="/./../images/image-20231127192631773.png" alt="image-20231127192631773"></p>
