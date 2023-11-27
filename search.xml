@@ -29,6 +29,30 @@
       </categories>
   </entry>
   <entry>
+    <title>java web基础</title>
+    <url>/2023/11/27/java-web%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>Java 基础</p>
+<h1 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h1><h2 id="中文乱码处理"><a href="#中文乱码处理" class="headerlink" title="中文乱码处理"></a>中文乱码处理</h2><figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">response.setContentType(<span class="string">&quot;text/html;charset=UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="端口8080占用处理"><a href="#端口8080占用处理" class="headerlink" title="端口8080占用处理"></a>端口8080占用处理</h2><p><img src="/./../images/image-20231127192631773.png" alt="image-20231127192631773"></p>
+<h2 id="HTML-基础"><a href="#HTML-基础" class="headerlink" title="HTML 基础"></a><code>HTML</code> 基础</h2><h3 id="table常用属性"><a href="#table常用属性" class="headerlink" title="table常用属性"></a><code>table</code>常用属性</h3><p><img src="/./../images/image-20231127191036541.png" alt="image-20231127191036541"></p>
+<h3 id="input-控件"><a href="#input-控件" class="headerlink" title="input 控件"></a><code>input</code> 控件</h3><p><img src="/./../images/image-20231127190421182.png" alt="image-20231127190421182"></p>
+<p>**<img src="/./../images/image-20231127190926400.png" alt="image-20231127190926400"></p>
+<h3 id="textarea-控件（多行文本框）"><a href="#textarea-控件（多行文本框）" class="headerlink" title="textarea 控件（多行文本框）"></a><code>textarea</code> 控件（多行文本框）</h3><figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;textarea cols=<span class="string">&quot;每行中的字符数&quot;</span> rows=<span class="string">&quot;显示的行数&quot;</span>&gt;</span><br><span class="line">	文本内容</span><br><span class="line">&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="select-控件（下拉菜单）"><a href="#select-控件（下拉菜单）" class="headerlink" title="select 控件（下拉菜单）"></a><code>select</code> 控件（下拉菜单）</h3><figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">        &lt;option&gt;选项<span class="number">1</span>&lt;/option&gt;</span><br><span class="line">        &lt;option&gt;选项<span class="number">2</span>&lt;/option&gt;</span><br><span class="line">        &lt;option&gt;选项<span class="number">3</span>&lt;/option&gt;</span><br><span class="line">       ...</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../images/image-20231127190832401.png" alt="image-20231127190832401"></p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="注册驱动"><a href="#注册驱动" class="headerlink" title="注册驱动"></a>注册驱动</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">dbName</span> <span class="operator">=</span> <span class="string">&quot;jdbc&quot;</span>;<span class="comment">//数据库名称</span></span><br><span class="line"><span class="type">String</span> <span class="variable">userName</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;<span class="comment">//用户名</span></span><br><span class="line"><span class="type">String</span> <span class="variable">userPasswd</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;<span class="comment">//密码String url = &quot;jdbc:mysql://localhost/&quot; + dbName +&quot;?characterEncoding=utf8&amp;serverTimezone=GMT%2B8&quot;;</span></span><br><span class="line"><span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(url, userName, userPasswd);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Java_web</category>
+      </categories>
+  </entry>
+  <entry>
     <title>HADOOP hdfs操作</title>
     <url>/2023/11/08/HDFS%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>Hadoop HDFS 文件目录操作</p>
@@ -238,29 +262,5 @@
 </blockquote>
 <p><img src="/./../images/image-20231114234613687.png" alt="image-20231114234613687"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>java web基础</title>
-    <url>/2023/11/27/java-web%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>Java 基础</p>
-<h1 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h1><h2 id="中文乱码处理"><a href="#中文乱码处理" class="headerlink" title="中文乱码处理"></a>中文乱码处理</h2><figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">response.setContentType(<span class="string">&quot;text/html;charset=UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="端口8080占用处理"><a href="#端口8080占用处理" class="headerlink" title="端口8080占用处理"></a>端口8080占用处理</h2><p><img src="/./../images/image-20231127192631773.png" alt="image-20231127192631773"></p>
-<h2 id="HTML-基础"><a href="#HTML-基础" class="headerlink" title="HTML 基础"></a><code>HTML</code> 基础</h2><h3 id="table常用属性"><a href="#table常用属性" class="headerlink" title="table常用属性"></a><code>table</code>常用属性</h3><p><img src="/./../images/image-20231127191036541.png" alt="image-20231127191036541"></p>
-<h3 id="input-控件"><a href="#input-控件" class="headerlink" title="input 控件"></a><code>input</code> 控件</h3><p><img src="/./../images/image-20231127190421182.png" alt="image-20231127190421182"></p>
-<p>**<img src="/./../images/image-20231127190926400.png" alt="image-20231127190926400"></p>
-<h3 id="textarea-控件（多行文本框）"><a href="#textarea-控件（多行文本框）" class="headerlink" title="textarea 控件（多行文本框）"></a><code>textarea</code> 控件（多行文本框）</h3><figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;textarea cols=<span class="string">&quot;每行中的字符数&quot;</span> rows=<span class="string">&quot;显示的行数&quot;</span>&gt;</span><br><span class="line">	文本内容</span><br><span class="line">&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="select-控件（下拉菜单）"><a href="#select-控件（下拉菜单）" class="headerlink" title="select 控件（下拉菜单）"></a><code>select</code> 控件（下拉菜单）</h3><figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">        &lt;option&gt;选项<span class="number">1</span>&lt;/option&gt;</span><br><span class="line">        &lt;option&gt;选项<span class="number">2</span>&lt;/option&gt;</span><br><span class="line">        &lt;option&gt;选项<span class="number">3</span>&lt;/option&gt;</span><br><span class="line">       ...</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/./../images/image-20231127190832401.png" alt="image-20231127190832401"></p>
-<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="注册驱动"><a href="#注册驱动" class="headerlink" title="注册驱动"></a>注册驱动</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">dbName</span> <span class="operator">=</span> <span class="string">&quot;jdbc&quot;</span>;<span class="comment">//数据库名称</span></span><br><span class="line"><span class="type">String</span> <span class="variable">userName</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;<span class="comment">//用户名</span></span><br><span class="line"><span class="type">String</span> <span class="variable">userPasswd</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;<span class="comment">//密码String url = &quot;jdbc:mysql://localhost/&quot; + dbName +&quot;?characterEncoding=utf8&amp;serverTimezone=GMT%2B8&quot;;</span></span><br><span class="line"><span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(url, userName, userPasswd);</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Java_web</category>
-      </categories>
   </entry>
 </search>
