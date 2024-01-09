@@ -215,7 +215,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-11-27 17:27:58" itemprop="dateModified" datetime="2023-11-27T17:27:58+08:00">2023-11-27</time>
+                <time title="Modified: 2024-01-09 20:55:26" itemprop="dateModified" datetime="2024-01-09T20:55:26+08:00">2024-01-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,6 +242,163 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/11/12/Hadoop/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/flume-%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Denny.JPG">
+      <meta itemprop="name" content="Danny">
+      <meta itemprop="description" content="这里什么都没有！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Danny's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/09/flume-%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">flume 命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-01-09 20:56:30 / Modified: 21:22:25" itemprop="dateCreated datePublished" datetime="2024-01-09T20:56:30+08:00">2024-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flume/" itemprop="url" rel="index"><span itemprop="name">flume</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="flume-命令"><a href="#flume-命令" class="headerlink" title="flume 命令"></a>flume 命令</h1><h2 id="Kafka-基础"><a href="#Kafka-基础" class="headerlink" title="Kafka 基础"></a>Kafka 基础</h2><h3 id="启动zookeeper后在执行启动Kafka"><a href="#启动zookeeper后在执行启动Kafka" class="headerlink" title="启动zookeeper后在执行启动Kafka"></a>启动zookeeper后在执行启动Kafka</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./bin/zookeeper-server-start.sh config/zookeeper.properties  &amp;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./bin/kafka-server-start.sh  config/server.properties &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="创建topic"><a href="#创建topic" class="headerlink" title="创建topic"></a>创建<code>topic</code></h3><p><code>replication-factor</code> 副本数 ；<code>partitions</code> 分区数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kafka-topics.sh --create  --zookeeper  localhost:2181 --replication-factor 1 --partitions 1 --topic test</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询topic"><a href="#查询topic" class="headerlink" title="查询topic"></a>查询<code>topic</code></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kafka-topics.sh --describe  --zookeeper  localhost:2181  -topic test</span><br></pre></td></tr></table></figure>
+
+<h4 id="发送消息"><a href="#发送消息" class="headerlink" title="发送消息"></a>发送消息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kafka-console-producer.sh  --borker-list localhost:2181 -topic test</span><br></pre></td></tr></table></figure>
+
+<h4 id="消费消息"><a href="#消费消息" class="headerlink" title="消费消息"></a>消费消息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kafka-console-consumer.sh --bootstrap-server localhost:2181 --topic test --form-beginning</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/python-%E7%88%AC%E8%99%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Denny.JPG">
+      <meta itemprop="name" content="Danny">
+      <meta itemprop="description" content="这里什么都没有！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Danny's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/09/python-%E7%88%AC%E8%99%AB/" class="post-title-link" itemprop="url">python 爬虫</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-01-09 19:49:54 / Modified: 20:54:54" itemprop="dateCreated datePublished" datetime="2024-01-09T19:49:54+08:00">2024-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flume/" itemprop="url" rel="index"><span itemprop="name">flume</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><p>flume 爬虫示例</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/01/09/python-%E7%88%AC%E8%99%AB/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -869,14 +1026,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -903,7 +1060,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
