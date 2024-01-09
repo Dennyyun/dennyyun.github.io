@@ -265,6 +265,173 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/hadoop-on-yran-%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Denny.JPG">
+      <meta itemprop="name" content="Danny">
+      <meta itemprop="description" content="这里什么都没有！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Danny's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/09/hadoop-on-yran-%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">hadoop on yran 模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-01-09 22:24:30 / Modified: 22:29:31" itemprop="dateCreated datePublished" datetime="2024-01-09T22:24:30+08:00">2024-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="实验二-Spark安装部署：On-Yarn模式"><a href="#实验二-Spark安装部署：On-Yarn模式" class="headerlink" title="实验二 Spark安装部署：On Yarn模式"></a>实验二 Spark安装部署：On Yarn模式</h1><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/01/09/hadoop-on-yran-%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/%E9%9B%86%E6%88%90-Flume/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Denny.JPG">
+      <meta itemprop="name" content="Danny">
+      <meta itemprop="description" content="这里什么都没有！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Danny's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/09/%E9%9B%86%E6%88%90-Flume/" class="post-title-link" itemprop="url">集成 Flume</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-01-09 21:56:52 / Modified: 22:14:43" itemprop="dateCreated datePublished" datetime="2024-01-09T21:56:52+08:00">2024-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flume/" itemprop="url" rel="index"><span itemprop="name">Flume</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Kafka消息订阅系统：集成Flume"><a href="#Kafka消息订阅系统：集成Flume" class="headerlink" title="Kafka消息订阅系统：集成Flume"></a>Kafka消息订阅系统：集成Flume</h1><h2 id="配置flume"><a href="#配置flume" class="headerlink" title="配置flume"></a>配置flume</h2><h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd apache-flume-1.7.0-bin/conf</span><br><span class="line"> vim flume-conf.properties</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加以下内容到文件中，添加完毕利用-wq保存并退出"><a href="#添加以下内容到文件中，添加完毕利用-wq保存并退出" class="headerlink" title="添加以下内容到文件中，添加完毕利用:wq保存并退出"></a>添加以下内容到文件中，添加完毕利用:wq保存并退出</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">agent.sources = r1</span><br><span class="line"><span class="comment">#输入端，名称为r1</span></span><br><span class="line">agent.channels = c1</span><br><span class="line"><span class="comment">#传输通道 ，名称为c1</span></span><br><span class="line">agent.sinks = s1</span><br><span class="line"><span class="comment">#输出端，名称为s1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###下面是source配置部分：</span></span><br><span class="line">agent.sources.r1.type = netcat</span><br><span class="line"><span class="comment">#设置输入端r1的类型为netcat，接收命令行输入</span></span><br><span class="line">agent.sources.r1.bind = master</span><br><span class="line"><span class="comment">#输入端绑定主机名/IP地址 master</span></span><br><span class="line">agent.sources.r1.port = 9999</span><br><span class="line"><span class="comment">#输入端绑定端口 9999</span></span><br><span class="line">agent.sources.r1.channels = c1</span><br><span class="line"><span class="comment">#输入端对接传输通道c1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###下面是channel配置部分:</span></span><br><span class="line">agent.channels.c1.type = memory</span><br><span class="line"><span class="comment">#传输通道类型为内存模式 memory</span></span><br><span class="line">agent.channels.c1.capacity = 100</span><br><span class="line"><span class="comment">#传输通道内存容量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###下面是sink配置部分：</span></span><br><span class="line">agent.sinks.s1.type = org.apache.flume.sink.kafka.KafkaSink</span><br><span class="line"><span class="comment">#输出端s1的类型为kafkaSink（输出到kafka）</span></span><br><span class="line">agent.sinks.s1.topic = mySecondTopic</span><br><span class="line"><span class="comment">#输出到kafka topic：mySecondTopic（在Kafka中创建此topic）</span></span><br><span class="line">agent.sinks.s1.brokerList = master:9092</span><br><span class="line"><span class="comment">#输出端对应的broker列表：master:9092</span></span><br><span class="line">agent.sinks.s1.requiredAcks = 1</span><br><span class="line"><span class="comment">#设置kafka响应次数</span></span><br><span class="line">agent.sinks.s1.batchSize = 1</span><br><span class="line"><span class="comment">#批量发送消息大小，在这里设置为1，每次发送一条消息</span></span><br><span class="line">agent.sinks.s1.channel = c1</span><br><span class="line"><span class="comment">#输出端对接传输通道c1</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="启动zookeeper集群"><a href="#启动zookeeper集群" class="headerlink" title="启动zookeeper集群"></a>启动zookeeper集群</h2><p>注意：一定要确保各节点间时间同步</p>
+<h3 id="分别在master，slave01，slave02上启动zookeeper"><a href="#分别在master，slave01，slave02上启动zookeeper" class="headerlink" title="分别在master，slave01，slave02上启动zookeeper"></a>分别在<em>master，slave01，slave02</em>上启动zookeeper</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zkServer.sh start</span><br></pre></td></tr></table></figure>
+
+<p>分别在master，slave01，slave02上查看zookeeper是否启动成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zkServer.sh status</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动Kafka"><a href="#启动Kafka" class="headerlink" title="启动Kafka"></a>启动Kafka</h2><p> 启动Kafka需要保证zookeeper服务已经启动。</p>
+<h3 id="在-master-和-slave01、slave02节点分别启动-Kafka，代码如下："><a href="#在-master-和-slave01、slave02节点分别启动-Kafka，代码如下：" class="headerlink" title="在 master 和 slave01、slave02节点分别启动 Kafka，代码如下："></a>在 master 和 slave01、slave02节点分别启动 Kafka，代码如下：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd kafka_2.11-0.10.2.1/</span><br><span class="line"> bin/kafka-server-start.sh -daemon config/server.properties</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建实验用topic-mySecondTopic"><a href="#创建实验用topic-mySecondTopic" class="headerlink" title="创建实验用topic mySecondTopic"></a>创建实验用topic mySecondTopic</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper master:2181 --replication-factor 2 --partitions 3 --topic mySecondTopic</span><br></pre></td></tr></table></figure>
+
+<h2 id="消费topic信息"><a href="#消费topic信息" class="headerlink" title="消费topic信息"></a>消费topic信息</h2><h3 id="在Flume-配置文件中，我们将消息发送到了-mySecondTopic-，所以，在运行"><a href="#在Flume-配置文件中，我们将消息发送到了-mySecondTopic-，所以，在运行" class="headerlink" title="在Flume 配置文件中，我们将消息发送到了 mySecondTopic ，所以，在运行"></a>在Flume 配置文件中，我们将消息发送到了 mySecondTopic ，所以，在运行</h3><p>kafka-console-consumer 命令时，要指定消费的是 mySecondTopic<br>的消息，这样在下面步骤中才能收到 Flume<br>发送的消息（这是一个常驻进程，运行时不能操作和关闭终端）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --bootstrap-server  master:9092 --topic mySecondTopic</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动Flume"><a href="#启动Flume" class="headerlink" title="启动Flume"></a>启动Flume</h2><h3 id="运行如下命令启动Flume（这是一个常驻进程，运行时不能操作和关闭终端）"><a href="#运行如下命令启动Flume（这是一个常驻进程，运行时不能操作和关闭终端）" class="headerlink" title="运行如下命令启动Flume（这是一个常驻进程，运行时不能操作和关闭终端）"></a>运行如下命令启动Flume（这是一个常驻进程，运行时不能操作和关闭终端）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd apache-flume-1.7.0-bin/bin</span><br><span class="line">./flume-ng agent -c conf -f ../conf/flume-conf.properties -n agent -Dflume.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行-Telnet-命令发送数据"><a href="#运行-Telnet-命令发送数据" class="headerlink" title="运行 Telnet 命令发送数据"></a>运行 Telnet 命令发送数据</h2><h3 id="再新打开一个命令行终端，运行telnet命令，进入telnet的命令行，输入open-localhost-9999"><a href="#再新打开一个命令行终端，运行telnet命令，进入telnet的命令行，输入open-localhost-9999" class="headerlink" title="再新打开一个命令行终端，运行telnet命令，进入telnet的命令行，输入open localhost 9999"></a>再新打开一个命令行终端，运行telnet命令，进入telnet的命令行，输入open localhost 9999</h3><p>如果运行telnet命令显示找不到命令，则是没有安装该服务，切换到root用户（密码为zkpk）使用yum命令即可（如果已安装则可以忽略此安装）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[zkpk@master ~]$ su</span><br><span class="line">[root@master ~]# yum install -y telnet</span><br><span class="line">[root@master ~]# exit</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动telnet客户端，连接到master-9999端口"><a href="#启动telnet客户端，连接到master-9999端口" class="headerlink" title="启动telnet客户端，连接到master 9999端口"></a>启动telnet客户端，连接到master 9999端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zkpk@master ~]$ telnet</span><br><span class="line"><span class="meta prompt_">telnet&gt;</span><span class="language-bash">open master 9999</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/flume-%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -290,7 +457,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-01-09 20:56:30 / Modified: 21:22:25" itemprop="dateCreated datePublished" datetime="2024-01-09T20:56:30+08:00">2024-01-09</time>
+              <time title="Created: 2024-01-09 20:56:30 / Modified: 21:57:42" itemprop="dateCreated datePublished" datetime="2024-01-09T20:56:30+08:00">2024-01-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -298,7 +465,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flume/" itemprop="url" rel="index"><span itemprop="name">flume</span></a>
+                  <a href="/categories/Flume/" itemprop="url" rel="index"><span itemprop="name">Flume</span></a>
                 </span>
             </span>
 
@@ -313,22 +480,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="flume-命令"><a href="#flume-命令" class="headerlink" title="flume 命令"></a>flume 命令</h1><h2 id="Kafka-基础"><a href="#Kafka-基础" class="headerlink" title="Kafka 基础"></a>Kafka 基础</h2><h3 id="启动zookeeper后在执行启动Kafka"><a href="#启动zookeeper后在执行启动Kafka" class="headerlink" title="启动zookeeper后在执行启动Kafka"></a>启动zookeeper后在执行启动Kafka</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./bin/zookeeper-server-start.sh config/zookeeper.properties  &amp;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./bin/kafka-server-start.sh  config/server.properties &amp;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="创建topic"><a href="#创建topic" class="headerlink" title="创建topic"></a>创建<code>topic</code></h3><p><code>replication-factor</code> 副本数 ；<code>partitions</code> 分区数</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kafka-topics.sh --create  --zookeeper  localhost:2181 --replication-factor 1 --partitions 1 --topic test</span><br></pre></td></tr></table></figure>
-
-<h4 id="查询topic"><a href="#查询topic" class="headerlink" title="查询topic"></a>查询<code>topic</code></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kafka-topics.sh --describe  --zookeeper  localhost:2181  -topic test</span><br></pre></td></tr></table></figure>
-
-<h4 id="发送消息"><a href="#发送消息" class="headerlink" title="发送消息"></a>发送消息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kafka-console-producer.sh  --borker-list localhost:2181 -topic test</span><br></pre></td></tr></table></figure>
-
-<h4 id="消费消息"><a href="#消费消息" class="headerlink" title="消费消息"></a>消费消息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kafka-console-consumer.sh --bootstrap-server localhost:2181 --topic test --form-beginning</span><br></pre></td></tr></table></figure>
-
-
+          <h1 id="flume-命令"><a href="#flume-命令" class="headerlink" title="flume 命令"></a>flume 命令</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/01/09/flume-%E5%91%BD%E4%BB%A4/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -372,7 +532,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-01-09 19:49:54 / Modified: 20:54:54" itemprop="dateCreated datePublished" datetime="2024-01-09T19:49:54+08:00">2024-01-09</time>
+              <time title="Created: 2024-01-09 19:49:54 / Modified: 21:54:28" itemprop="dateCreated datePublished" datetime="2024-01-09T19:49:54+08:00">2024-01-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -380,7 +540,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flume/" itemprop="url" rel="index"><span itemprop="name">flume</span></a>
+                  <a href="/categories/Flume/" itemprop="url" rel="index"><span itemprop="name">Flume</span></a>
                 </span>
             </span>
 
@@ -759,7 +919,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-11-27 19:44:25" itemprop="dateModified" datetime="2023-11-27T19:44:25+08:00">2023-11-27</time>
+                <time title="Modified: 2024-01-09 21:57:40" itemprop="dateModified" datetime="2024-01-09T21:57:40+08:00">2024-01-09</time>
               </span>
 
           
@@ -796,170 +956,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/12/Flume-%E9%85%8D%E7%BD%AE%E9%A1%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/Denny.JPG">
-      <meta itemprop="name" content="Danny">
-      <meta itemprop="description" content="这里什么都没有！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Danny's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/12/Flume-%E9%85%8D%E7%BD%AE%E9%A1%B9/" class="post-title-link" itemprop="url">Flume 配置项</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-12 22:11:00" itemprop="dateCreated datePublished" datetime="2023-11-12T22:11:00+08:00">2023-11-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-11-27 17:26:26" itemprop="dateModified" datetime="2023-11-27T17:26:26+08:00">2023-11-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Flume/" itemprop="url" rel="index"><span itemprop="name">Flume</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Flume 常见配置项</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/12/Flume-%E9%85%8D%E7%BD%AE%E9%A1%B9/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/08/HDFS%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/Denny.JPG">
-      <meta itemprop="name" content="Danny">
-      <meta itemprop="description" content="这里什么都没有！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Danny's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/08/HDFS%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">HADOOP hdfs操作</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-08 22:08:51" itemprop="dateCreated datePublished" datetime="2023-11-08T22:08:51+08:00">2023-11-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-11-27 17:28:22" itemprop="dateModified" datetime="2023-11-27T17:28:22+08:00">2023-11-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Hadoop HDFS 文件目录操作</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/08/HDFS%E6%93%8D%E4%BD%9C/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1026,7 +1027,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
