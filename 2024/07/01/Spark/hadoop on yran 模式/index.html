@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="hadoop on yran 模式Spark安装部署：On Yarn模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hadoop on yran 模式">
+<meta property="og:url" content="http://example.com/2024/07/01/Spark/hadoop%20on%20yran%20%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Denny&#39;s Blog">
+<meta property="og:description" content="hadoop on yran 模式Spark安装部署：On Yarn模式">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/image-20240701144752494.png">
+<meta property="og:image" content="http://example.com/images/image-20240701151827996.png">
+<meta property="og:image" content="http://example.com/images/image-20240701152019498.png">
+<meta property="og:image" content="http://example.com/images/image-20240701152546256.png">
+<meta property="og:image" content="http://example.com/images/image-20240701152608181.png">
+<meta property="article:published_time" content="2024-07-01T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-01T07:42:14.924Z">
+<meta property="article:author" content="Denny&#39;s Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/image-20240701144752494.png">
+
+
+<link rel="canonical" href="http://example.com/2024/07/01/Spark/hadoop%20on%20yran%20%E6%A8%A1%E5%BC%8F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/07/01/Spark/hadoop%20on%20yran%20%E6%A8%A1%E5%BC%8F/","path":"2024/07/01/Spark/hadoop on yran 模式/","title":"hadoop on yran 模式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>hadoop on yran 模式 | Denny's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Denny's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">code builds world</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hadoop-on-yran-%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">hadoop on yran 模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%EF%BC%9AOn-Yarn%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">Spark安装部署：On Yarn模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.2.</span> <span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BB%88%E7%AB%AF%EF%BC%8C%E5%88%87%E6%8D%A2%E5%88%B0spark%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%89%80%E5%9C%A8%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">打开命令行终端，切换到spark压缩包所在目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E5%8E%8B%E7%BC%A9%E5%8C%85%E5%88%B0%E7%94%A8%E6%88%B7%E6%A0%B9%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">解压压缩包到用户根目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E8%A7%A3%E5%8E%8B%E5%87%BA%E7%9A%84spark%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%BF%90%E8%A1%8Cll%E5%8D%B3%E5%8F%AF%E7%9C%8B%E5%88%B0%E6%AD%A4%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">1.2.3.</span> <span class="nav-text">进入解压出的spark目录，运行ll即可看到此目录下的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%88%B0%E6%A0%B9%E7%9B%AE%E5%BD%95%EF%BC%8C%E7%BC%96%E8%BE%91-bash-profile%E6%96%87%E4%BB%B6%EF%BC%8C%E6%B7%BB%E5%8A%A0%E5%A6%82%E4%B8%8B%E4%B8%89%E4%B8%AA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%8C%E4%BF%9D%E5%AD%98%E9%80%80%E5%87%BA%E3%80%82"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">返回到根目录，编辑 .bash_profile文件，添加如下三个环境变量，保存退出。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E6%97%B6%E5%80%99%E6%88%91%E4%BB%AC%E5%9C%A8%E5%90%AF%E5%8A%A8Spark-on-Yarn%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0%E5%86%85%E5%AD%98%E5%A4%A7%E5%B0%8F%E9%94%99%E8%AF%AF%EF%BC%8C%E6%AD%A4%E6%97%B6job%E4%BC%9A%E8%A2%AB%E5%BC%BA%E5%88%B6%E6%9D%80%E6%AD%BB%EF%BC%8C%E4%B8%BA%E4%BA%86%E9%81%BF%E5%85%8D%E8%BF%99%E4%B8%80%E6%83%85%E5%86%B5%EF%BC%8C%E6%88%91%E4%BB%AC%E7%BC%96%E8%BE%91-home-zkpk-hadoop-2-7-3-etc-hadoop%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84yarn-site-xml%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">有时候我们在启动Spark on Yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们编辑&#x2F;home&#x2F;zkpk&#x2F;hadoop-2.7.3&#x2F;etc&#x2F;hadoop目录下的yarn-site.xml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%86yarn-site-xml%E6%96%87%E4%BB%B6%E5%8F%91%E9%80%81%E5%88%B0%E4%BB%8E%E8%8A%82%E7%82%B9"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">将yarn-site.xml文件发送到从节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8Hadoop%E9%9B%86%E7%BE%A4"><span class="nav-number">1.2.4.</span> <span class="nav-text">启动Hadoop集群</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8master%E5%90%AF%E5%8A%A8Hadoop%E9%9B%86%E7%BE%A4"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">在master启动Hadoop集群</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81Spark-on-Yarn%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%98%AF%E5%90%A6%E7%94%9F%E6%95%88"><span class="nav-number">1.2.5.</span> <span class="nav-text">验证Spark on Yarn安装部署是否生效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEWebUI"><span class="nav-number">1.2.6.</span> <span class="nav-text">访问WebUI</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Denny's Blog"
+      src="/images/Denny.JPG">
+  <p class="site-author-name" itemprop="name">Denny's Blog</p>
+  <div class="site-description" itemprop="description">这里什么也没有!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/01/Spark/hadoop%20on%20yran%20%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Denny.JPG">
+      <meta itemprop="name" content="Denny's Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Denny's Blog">
+      <meta itemprop="description" content="这里什么也没有!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="hadoop on yran 模式 | Denny's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hadoop on yran 模式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-07-01 12:00:00 / Modified: 15:42:14" itemprop="dateCreated datePublished" datetime="2024-07-01T12:00:00+08:00">2024-07-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spark-%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">Spark 相关配置</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="hadoop-on-yran-模式"><a href="#hadoop-on-yran-模式" class="headerlink" title="hadoop on yran 模式"></a><strong>hadoop on yran 模式</strong></h1><h2 id="Spark安装部署：On-Yarn模式"><a href="#Spark安装部署：On-Yarn模式" class="headerlink" title="Spark安装部署：On Yarn模式"></a>Spark安装部署：On Yarn模式</h2><span id="more"></span>
+
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h2><h3 id="打开命令行终端，切换到spark压缩包所在目录"><a href="#打开命令行终端，切换到spark压缩包所在目录" class="headerlink" title="打开命令行终端，切换到spark压缩包所在目录"></a>打开命令行终端，切换到spark压缩包所在目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /home/zkpk/tgz/spark/</span><br></pre></td></tr></table></figure>
+
+<h3 id="解压压缩包到用户根目录"><a href="#解压压缩包到用户根目录" class="headerlink" title="解压压缩包到用户根目录"></a>解压压缩包到用户根目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf spark-2.1.1-bin-hadoop2.7.tgz -C /home/zkpk/</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入解压出的spark目录，运行ll即可看到此目录下的内容"><a href="#进入解压出的spark目录，运行ll即可看到此目录下的内容" class="headerlink" title="进入解压出的spark目录，运行ll即可看到此目录下的内容"></a>进入解压出的spark目录，运行ll即可看到此目录下的内容</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd spark-2.1.1-bin-hadoop2.7/</span><br></pre></td></tr></table></figure>
+
+<h4 id="返回到根目录，编辑-bash-profile文件，添加如下三个环境变量，保存退出。"><a href="#返回到根目录，编辑-bash-profile文件，添加如下三个环境变量，保存退出。" class="headerlink" title="返回到根目录，编辑 .bash_profile文件，添加如下三个环境变量，保存退出。"></a>返回到根目录，编辑 .bash_profile文件，添加如下三个环境变量，保存退出。</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim .bash_profile</span><br><span class="line"></span><br><span class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line">export HDFS_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line">export YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/image-20240701144752494.png" alt="image-20240701144752494"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source  .bash_profile #重新加载配置文件，使添加的变量生效</span><br></pre></td></tr></table></figure>
+
+<h4 id="有时候我们在启动Spark-on-Yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们编辑-home-zkpk-hadoop-2-7-3-etc-hadoop目录下的yarn-site-xml文件"><a href="#有时候我们在启动Spark-on-Yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们编辑-home-zkpk-hadoop-2-7-3-etc-hadoop目录下的yarn-site-xml文件" class="headerlink" title="有时候我们在启动Spark on Yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们编辑&#x2F;home&#x2F;zkpk&#x2F;hadoop-2.7.3&#x2F;etc&#x2F;hadoop目录下的yarn-site.xml文件"></a>有时候我们在启动Spark on Yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们编辑&#x2F;home&#x2F;zkpk&#x2F;hadoop-2.7.3&#x2F;etc&#x2F;hadoop目录下的yarn-site.xml文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">d hadoop-2.7.3/etc/hadoop/</span><br><span class="line"></span><br><span class="line">vim yarn.site.xml #添加以下内容</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/image-20240701151827996.png" alt="image-20240701151827996"></p>
+<h4 id="将yarn-site-xml文件发送到从节点"><a href="#将yarn-site-xml文件发送到从节点" class="headerlink" title="将yarn-site.xml文件发送到从节点"></a>将yarn-site.xml文件发送到从节点</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp yarn-site.xml zkpk@slave01:/home/zkpk/hadoop-2.7.3/etc/hadoop</span><br><span class="line"></span><br><span class="line"> scp yarn-site.xml zkpk@slave02:/home/zkpk/hadoop-2.7.3/etc/hadoop</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/image-20240701152019498.png" alt="image-20240701152019498"></p>
+<h3 id="启动Hadoop集群"><a href="#启动Hadoop集群" class="headerlink" title="启动Hadoop集群"></a>启动Hadoop集群</h3><h4 id="在master启动Hadoop集群"><a href="#在master启动Hadoop集群" class="headerlink" title="在master启动Hadoop集群"></a>在master启动Hadoop集群</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式化</span></span><br><span class="line">hadoop namenode -format</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动集群</span></span><br><span class="line">start-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭安全模式</span></span><br><span class="line">hdfs dfsadmin -safemode  leave</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证Spark-on-Yarn安装部署是否生效"><a href="#验证Spark-on-Yarn安装部署是否生效" class="headerlink" title="验证Spark on Yarn安装部署是否生效"></a>验证Spark on Yarn安装部署是否生效</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd spark-2.1.1-bin-hadoop2.7/</span><br><span class="line"></span><br><span class="line">./bin/spark-submit --class org.apache.spark.examples.SparkPi --master yarn --num-executors 3 --driver-memory 1g --executor-memory 1g --executor-cores 1 examples/jars/spark-examples_2.11-2.1.1.jar 10</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/image-20240701152546256.png" alt="image-20240701152546256"></p>
+<h3 id="访问WebUI"><a href="#访问WebUI" class="headerlink" title="访问WebUI"></a>访问WebUI</h3><p><img src="/../../images/image-20240701152608181.png" alt="image-20240701152608181"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/30/ddd/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Denny's Blog</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

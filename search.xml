@@ -27,14 +27,36 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2024/06/30/test/</url>
-    <content><![CDATA[<h1 id="hadoop-on-yran-模式"><a href="#hadoop-on-yran-模式" class="headerlink" title="hadoop on yran 模式"></a>hadoop on yran 模式</h1><h2 id="Spark安装部署：On-Yarn模式"><a href="#Spark安装部署：On-Yarn模式" class="headerlink" title="Spark安装部署：On Yarn模式"></a>Spark安装部署：On Yarn模式</h2><span id="more"></span>
+    <title>hadoop on yran 模式</title>
+    <url>/2024/07/01/Spark/hadoop%20on%20yran%20%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="hadoop-on-yran-模式"><a href="#hadoop-on-yran-模式" class="headerlink" title="hadoop on yran 模式"></a><strong>hadoop on yran 模式</strong></h1><h2 id="Spark安装部署：On-Yarn模式"><a href="#Spark安装部署：On-Yarn模式" class="headerlink" title="Spark安装部署：On Yarn模式"></a>Spark安装部署：On Yarn模式</h2><span id="more"></span>
 
 <h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h2><h3 id="打开命令行终端，切换到spark压缩包所在目录"><a href="#打开命令行终端，切换到spark压缩包所在目录" class="headerlink" title="打开命令行终端，切换到spark压缩包所在目录"></a>打开命令行终端，切换到spark压缩包所在目录</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home/zkpk/tgz/spark/</span><br></pre></td></tr></table></figure>
 
 <h3 id="解压压缩包到用户根目录"><a href="#解压压缩包到用户根目录" class="headerlink" title="解压压缩包到用户根目录"></a>解压压缩包到用户根目录</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -zxvf spark-2.1.1-bin-hadoop2.7.tgz -C /home/zkpk/</span><br></pre></td></tr></table></figure>
 
+<h3 id="进入解压出的spark目录，运行ll即可看到此目录下的内容"><a href="#进入解压出的spark目录，运行ll即可看到此目录下的内容" class="headerlink" title="进入解压出的spark目录，运行ll即可看到此目录下的内容"></a>进入解压出的spark目录，运行ll即可看到此目录下的内容</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd spark-2.1.1-bin-hadoop2.7/</span><br></pre></td></tr></table></figure>
+
+<h4 id="返回到根目录，编辑-bash-profile文件，添加如下三个环境变量，保存退出。"><a href="#返回到根目录，编辑-bash-profile文件，添加如下三个环境变量，保存退出。" class="headerlink" title="返回到根目录，编辑 .bash_profile文件，添加如下三个环境变量，保存退出。"></a>返回到根目录，编辑 .bash_profile文件，添加如下三个环境变量，保存退出。</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim .bash_profile</span><br><span class="line"></span><br><span class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line">export HDFS_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line">export YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/image-20240701144752494.png" alt="image-20240701144752494"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source  .bash_profile #重新加载配置文件，使添加的变量生效</span><br></pre></td></tr></table></figure>
+
+<h4 id="有时候我们在启动Spark-on-Yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们编辑-home-zkpk-hadoop-2-7-3-etc-hadoop目录下的yarn-site-xml文件"><a href="#有时候我们在启动Spark-on-Yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们编辑-home-zkpk-hadoop-2-7-3-etc-hadoop目录下的yarn-site-xml文件" class="headerlink" title="有时候我们在启动Spark on Yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们编辑&#x2F;home&#x2F;zkpk&#x2F;hadoop-2.7.3&#x2F;etc&#x2F;hadoop目录下的yarn-site.xml文件"></a>有时候我们在启动Spark on Yarn时会出现内存大小错误，此时job会被强制杀死，为了避免这一情况，我们编辑&#x2F;home&#x2F;zkpk&#x2F;hadoop-2.7.3&#x2F;etc&#x2F;hadoop目录下的yarn-site.xml文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">d hadoop-2.7.3/etc/hadoop/</span><br><span class="line"></span><br><span class="line">vim yarn.site.xml #添加以下内容</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/image-20240701151827996.png" alt="image-20240701151827996"></p>
+<h4 id="将yarn-site-xml文件发送到从节点"><a href="#将yarn-site-xml文件发送到从节点" class="headerlink" title="将yarn-site.xml文件发送到从节点"></a>将yarn-site.xml文件发送到从节点</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp yarn-site.xml zkpk@slave01:/home/zkpk/hadoop-2.7.3/etc/hadoop</span><br><span class="line"></span><br><span class="line"> scp yarn-site.xml zkpk@slave02:/home/zkpk/hadoop-2.7.3/etc/hadoop</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/image-20240701152019498.png" alt="image-20240701152019498"></p>
+<h3 id="启动Hadoop集群"><a href="#启动Hadoop集群" class="headerlink" title="启动Hadoop集群"></a>启动Hadoop集群</h3><h4 id="在master启动Hadoop集群"><a href="#在master启动Hadoop集群" class="headerlink" title="在master启动Hadoop集群"></a>在master启动Hadoop集群</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">格式化</span></span><br><span class="line">hadoop namenode -format</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动集群</span></span><br><span class="line">start-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭安全模式</span></span><br><span class="line">hdfs dfsadmin -safemode  leave</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证Spark-on-Yarn安装部署是否生效"><a href="#验证Spark-on-Yarn安装部署是否生效" class="headerlink" title="验证Spark on Yarn安装部署是否生效"></a>验证Spark on Yarn安装部署是否生效</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd spark-2.1.1-bin-hadoop2.7/</span><br><span class="line"></span><br><span class="line">./bin/spark-submit --class org.apache.spark.examples.SparkPi --master yarn --num-executors 3 --driver-memory 1g --executor-memory 1g --executor-cores 1 examples/jars/spark-examples_2.11-2.1.1.jar 10</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/image-20240701152546256.png" alt="image-20240701152546256"></p>
+<h3 id="访问WebUI"><a href="#访问WebUI" class="headerlink" title="访问WebUI"></a>访问WebUI</h3><p><img src="/../../images/image-20240701152608181.png" alt="image-20240701152608181"></p>
 ]]></content>
+      <categories>
+        <category>Spark 相关配置</category>
+      </categories>
   </entry>
 </search>
