@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Mongodb 安装配置</title>
+    <url>/2024/07/01/Course-Related%20Configuration/Mongodb_%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="Mongodb-安装"><a href="#Mongodb-安装" class="headerlink" title="Mongodb 安装"></a>Mongodb 安装</h1><span id="more"></span>
+
+
+
+<h2 id="解压tar包"><a href="#解压tar包" class="headerlink" title="解压tar包"></a>解压tar包</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -zxvf mongodb-linux-x86_64-rhel70-7.0.11.tgz</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建用户组"><a href="#创建用户组" class="headerlink" title="创建用户组"></a>创建用户组</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">useradd mongod</span><br></pre></td></tr></table></figure>
+
+<h2 id="给文件赋权限"><a href="#给文件赋权限" class="headerlink" title="给文件赋权限"></a>给文件赋权限</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chown -R mongod:mongod /home/bigdata/mongodb/</span><br></pre></td></tr></table></figure>
+
+<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动Mongodb"><a href="#启动Mongodb" class="headerlink" title="启动Mongodb"></a>启动Mongodb</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./bin/mongod --config mongod.conf </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Course-Related Configuration</category>
+      </categories>
+  </entry>
+  <entry>
     <title>hadoop on yran 模式</title>
     <url>/2024/07/01/Course-Related%20Configuration/hadoop%20on%20yran%20%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="hadoop-on-yran-模式"><a href="#hadoop-on-yran-模式" class="headerlink" title="hadoop on yran 模式"></a><strong>hadoop on yran 模式</strong></h1><h2 id="Spark安装部署：On-Yarn模式"><a href="#Spark安装部署：On-Yarn模式" class="headerlink" title="Spark安装部署：On Yarn模式"></a>Spark安装部署：On Yarn模式</h2><span id="more"></span>
