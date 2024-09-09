@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://example.com/images/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF1.png">
 <meta property="og:image" content="http://example.com/assets/%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85.png">
 <meta property="article:published_time" content="2024-08-09T10:04:41.000Z">
-<meta property="article:modified_time" content="2024-08-09T11:27:28.083Z">
+<meta property="article:modified_time" content="2024-09-09T02:39:18.649Z">
 <meta property="article:author" content="Denny&#39;s Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/Docker%E5%AE%89%E8%A3%851.png">
@@ -224,9 +224,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-08-09 18:04:41 / Modified: 19:27:28" itemprop="dateCreated datePublished" datetime="2024-08-09T18:04:41+08:00">2024-08-09</time>
+      <time title="Created: 2024-08-09 18:04:41" itemprop="dateCreated datePublished" datetime="2024-08-09T18:04:41+08:00">2024-08-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-09-09 10:39:18" itemprop="dateModified" datetime="2024-09-09T10:39:18+08:00">2024-09-09</time>
     </span>
 
   
@@ -252,7 +258,7 @@
 <p><img src="/../images/Docker%E5%AE%89%E8%A3%851.png" alt="Docker安装1"></p>
 <p><img src="/../images/Docker%E5%AE%89%E8%A3%852.png" alt="Docker安装2"></p>
 <p><img src="/../images/Docker%E5%AE%89%E8%A3%853.png" alt="Docker安装3"></p>
-<h3 id="青龙面板一键安装"><a href="#青龙面板一键安装" class="headerlink" title="青龙面板一键安装"></a><strong>青龙面板一键安装</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/data:/ql/data \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -e QlBaseUrl=&quot;/&quot; \</span><br><span class="line">  -e QlPort=&quot;5700&quot; \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:2.16.5		</span><br><span class="line">  </span><br><span class="line"><span class="meta prompt_">  #</span><span class="language-bash">这里2.16.5是版本，latest是最新版</span></span><br></pre></td></tr></table></figure>
+<h3 id="青龙面板一键安装"><a href="#青龙面板一键安装" class="headerlink" title="青龙面板一键安装"></a><strong>青龙面板一键安装</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">-v $PWD/ql/config:/ql/config \</span><br><span class="line">-v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">-v $PWD/ql/repo:/ql/repo \</span><br><span class="line">-v $PWD/ql/log:/ql/log \</span><br><span class="line">-v $PWD/ql/db:/ql/db \</span><br><span class="line">-v $PWD/ql/deps:/ql/deps \</span><br><span class="line">-v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">-v $PWD/ql/raw:/ql/raw \</span><br><span class="line">-v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">-v $PWD/ql/xdd:/ql/xdd \</span><br><span class="line">-v $PWD/ql/xdd-plus:/ql/xdd-plus \</span><br><span class="line">-v $PWD/ql/sillyGirl:/ql/sillyGirl \</span><br><span class="line">-p 5700:5700 \</span><br><span class="line">-p 5701:5701 \</span><br><span class="line">-e ENABLE_HANGUP=true \</span><br><span class="line">-e ENABLE_WEB_PANEL=true \</span><br><span class="line">-e ENABLE_TG_BOT=true \</span><br><span class="line">--name qinglong \</span><br><span class="line">--hostname qinglong \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">whyour/qinglong:2.16.5	</span><br><span class="line">  </span><br><span class="line"><span class="meta prompt_">  #</span><span class="language-bash">这里2.16.5是版本，latest是最新版</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/../images/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%AE%89%E8%A3%851.png" alt="青龙面板安装1"></p>
 <p>​	由此可看到端口为5700</p>
